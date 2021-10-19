@@ -1,0 +1,3 @@
+POP
+PUSH
+MOV,ADD,SUB,
