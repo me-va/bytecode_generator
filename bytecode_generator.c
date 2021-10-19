@@ -177,9 +177,14 @@ int gencodes(char *codes,long size) {
     fclose(out);
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+   if( argc <= 2 ) {
+      printf("Usage: bytecode_gen.exe <opcodes.txt> <codes.txt> %s\n", argv[1]);
+       return 2;
+   }
 
+    
     inithashtable();
     char* codesbuffer;
     char* opcodesbuffer;
@@ -188,8 +193,8 @@ int main()
     FILE* codes;
 
 
-    fopen_s(&opcodes,"opcodes.txt", "rb");
-    fopen_s(&codes,"codes.txt", "rb");
+    fopen_s(&opcodes,argv[1], "rb");
+    fopen_s(&codes,argv[2], "rb");
 
 
     if(opcodes == NULL || codes == NULL) return 3;
